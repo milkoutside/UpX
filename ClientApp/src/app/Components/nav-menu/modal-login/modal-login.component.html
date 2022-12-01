@@ -1,0 +1,59 @@
+<button class="sign-up-button" (click)="openSign()">Вход</button>
+
+<div class="sign-in-modal" *ngIf="signUp">
+  <div class="header-sign text-white mt-4 fs-3">
+    <span>Вход</span>
+    <span class="header-exit text-white" (click)="close()">x</span>
+  </div>
+  <div class="container sign-content">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="input-sign">
+      <input id="login" name="username"  [(ngModel)]="credentials.name"  type="text">
+      <span>Phone</span>
+    </div>
+    <div class="mt-5 input-sign">
+      <input  id="pass" name="password" [(ngModel)]="credentials.password"  type="password" >
+      <span>Email</span>
+    </div>
+    <button class="button-sign-in mt-4 me-3" (click)="login(loginForm)" [disabled]="!loginForm.valid">
+      Войти
+    </button>
+    <p class=" non-account mt-4 me-3" (click)="OpenReg()">
+      Нет аккаунта?
+    </p>
+    </form>
+  </div>
+</div>
+<div class="sign-up-modal" *ngIf="reg">
+  <div class="header-sign text-white mt-4 fs-3">
+    <span>Регистрация</span>
+    <span class="header-exit text-white" (click)="close()">x</span>
+  </div>
+  <div class="container sign-content">
+    <form [formGroup]="myForm" >
+      <div class="input-sign">
+        <input  name="username"  formControlName="userName"   type="text">
+        <span>Name</span>
+      </div>
+      <div class="mt-5 input-sign">
+        <input    formControlName="userPhone"  type="text" placeholder="+3806663986666" >
+        <span>Phone</span>
+      </div>
+      <div class="mt-5 input-sign">
+        <input formControlName="userEmail" type="text" placeholder="gmail@com.ua" >
+        <span>Email</span>
+      </div>
+      <div class="mt-5  input-sign">
+        <input formControlName="userPassword"  type="password">
+        <span>Пароль</span>
+      </div>
+
+      <button class="button-sign-up mt-4 me-4"  [disabled]="myForm.invalid">
+        Завершить
+      </button>
+      <p class=" non-account mt-4 me-3" (click)="openSign()">
+        Уже есть аккаунт?
+      </p>
+    </form>
+  </div>
+</div>

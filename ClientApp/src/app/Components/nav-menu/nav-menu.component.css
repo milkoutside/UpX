@@ -1,0 +1,59 @@
+
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+.navbar-brand{
+  background: url("/assets/img/logo.svg")0 0/100% 100% no-repeat;
+
+  min-width: 148px;
+
+  height: 100px;
+}
+@media (max-width: 426px) {
+  .balance{
+    margin-left: auto;
+  }
+}
+.navbar-brand:hover{
+  filter: hue-rotate(270deg)
+}
+
+.navbar{
+  background: rgba(37,38,58,.95);
+}
+.nav-item a{
+  color: #cdcde8 !important;
+}
+.nav-item:hover a{
+  color:blue !important;
+}
+.profile{
+  border: 2px solid #dedde1;
+  background: #68539b;
+  border-radius: 60%;
+  transition: border-color .3s;
+  width: 50px;
+  height: 50px;
+  margin-right: 2vw;
+  margin-left: 2vw;
+  cursor: pointer;
+}
+.balance{
+
+  color:#cdcde8;
+}
+
+
+.sign-up-button{
+  background: #66ddf6;
+  box-shadow: inset 0 -10px 10px 0 #2fb7ce;
+  color: #444867;
+  font-weight: inherit;
+  border: 2px solid #444867;
+  border-radius: 5px;
+  min-height: 44px;
+  min-width: 140px;
+
+}
+

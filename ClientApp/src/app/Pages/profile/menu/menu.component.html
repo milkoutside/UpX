@@ -1,0 +1,107 @@
+<div [ngSwitch]="operation" class="container-fluid ">
+  <div class="operations-menu text-white text-center">
+    <span (click)="operation = 'settings'" >Настройки</span>
+    <span (click)="operation = 'operations' ">Операции</span>
+    <span  (click)="operation = 'withdrawals';  paymentsInfo.operation = operation" >Вывод</span>
+    <span  (click)="operation = 'toUp'; paymentsInfo.operation = operation ">Пополнить</span>
+  </div>
+  <div *ngSwitchCase="'settings'" class="container mt-2 fs-4">
+    <p class="caption-info">Почта:</p>
+    <p class="info">{{this.userInfo.email}}</p>
+    <p class="caption-info">Номер телефона:</p>
+    <p class="info">{{this.userInfo.phone}}</p>
+    <p class="caption-info">Id:</p>
+    <p class="info">{{this.userInfo.id}}</p>
+    <svg (click)="logout()" routerLink=""
+         class="logout mt-2" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+         stroke-linecap="round" stroke-linejoin="round" >
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+      <polyline points="16 17 21 12 16 7"></polyline>
+      <line x1="21" y1="12" x2="9" y2="12"></line>
+    </svg>
+
+  </div>
+  <div *ngSwitchCase="'operations'" class="container mt-2">
+    <div class="row text-white  mt-1">
+      <div class="col">
+        Id операции:
+      </div>
+      <div class="col">
+        Сумма:
+      </div>
+      <div class="col">
+        Операция
+      </div>
+      <div class="col">
+        Тип выплаты:
+      </div>
+      <div class="col">
+        Номер выплаты:
+      </div>
+      <div class="col">
+        Дата:
+      </div>
+    </div>
+    <div class="row text-white" *ngFor="let f of trasactions">
+      <div class="col">
+        {{f.id}}
+      </div>
+      <div class="col">
+        {{f.sum}}
+      </div>
+      <div class="col">
+        {{f.operation}}
+      </div>
+      <div class="col">
+        {{f.paymentType}}
+      </div>
+      <div class="col">
+        {{f.paymentNumber}}
+      </div>
+      <div class="col">
+        {{f.date | date }}
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'withdrawals'" class="container mt-2">
+    <div class="text-white text-center fs-3 mb-2">
+      Выберите метод вывода:
+    </div>
+    <div class="row">
+      <div class="col payments text-center" (click)="openPayment();paymentsInfo.paymentType = 'MasterCard'">
+        <img src="assets/img/mastercard.svg"  alt="">
+      </div>
+      <div class="col payments text-center">
+        <img src="assets/img/visa.svg"  alt="">
+      </div>
+      <div class="col payments text-center">
+        <img class="bitcoind-img" src="assets/img/bitcoin.svg"  alt="">
+      </div>
+      <div class="col payments text-center">
+        <img src="assets/img/paypal.svg"  alt="">
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'toUp'" class="container mt-2">
+    <div class="text-white text-center fs-3 mb-2">
+      Выберите метод платежа:
+    </div>
+    <div class="row">
+      <div class="col payments text-center" (click)="openPayment();paymentsInfo.paymentType = 'MasterCard'">
+        <img src="assets/img/mastercard.svg"  alt="">
+      </div>
+      <div class="col payments text-center">
+        <img src="assets/img/visa.svg"  alt="">
+      </div>
+      <div class="col payments text-center">
+        <img class="bitcoind-img" src="assets/img/bitcoin.svg"  alt="">
+      </div>
+      <div class="col payments text-center">
+        <img src="assets/img/paypal.svg"  alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-payment-modal [paymentsInfo]="paymentsInfo" *ngIf="isOpen" (isOpen$)="isOpen = !isOpen"></app-payment-modal>

@@ -1,0 +1,39 @@
+<div class="container mt-4 text-white">
+
+    <div class="cell-grid" *ngFor="let rows of arrayStairs | async; let i = index;">
+
+      <button
+        class="cell"
+              [ngStyle]="{background:defeat?(cols?'#67ce67':'#da8383'):''}"
+              [disabled]="isDisabled[i]"
+              (click)="showCell($event, cols)"
+              *ngFor="let cols of rows.reverse() ; let j = index">
+        <p class="fs-5 mines-circle" *ngIf="!cols && defeat"></p>
+      </button>
+      <div class="coefficient">
+        {{coff[i]}}
+      </div>
+    </div>
+
+
+  <div class="bet-container">
+
+      <button (click)="bets.bet  = bets.bet + 8">8</button>
+      <button (click)="bets.bet = bets.bet + 16">16</button>
+      <button (click)="bets.bet  = bets.bet + 25">25</button>
+      <input placeholder="Ставка" type="number" [(ngModel)]="bets.bet">
+      <button (click)="bets.bet  = bets.bet + 40">40</button>
+      <button (click)="bets.bet  = bets.bet + 50">50</button>
+      <button (click)="bets.bet  = bets.bet + 70">70</button>
+      <div *ngIf="gameStart">
+        <button (click)= "takeWin()">Забрать</button>
+      </div>
+      <div *ngIf="!gameStart">
+        <button [disabled]="!isAuth || bets.bet < 8" (click)= "start()">Поставить</button>
+      </div>
+
+
+  </div>
+
+
+</div>

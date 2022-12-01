@@ -1,0 +1,157 @@
+.sign-up-button{
+  background: #66ddf6;
+  box-shadow: inset 0 -10px 10px 0 #2fb7ce;
+  color: #444867;
+  font-weight: inherit;
+  border: 2px solid #444867;
+  border-radius: 5px;
+  min-height: 44px;
+  min-width: 140px;
+
+}
+
+.exit{
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.sign-in-modal{
+  z-index: 40;
+  position: absolute;
+  width: 40vw;
+  height:70vh;
+  top:10vh;
+  right: 25%;
+  background: #2f2e4b;
+  text-align: center;
+}
+.sign-up-modal{
+  z-index: 40;
+  position: absolute;
+  width: 40vw;
+  height:90vh;
+  top:10vh;
+  right: 25%;
+  background: #2f2e4b;
+  text-align: center;
+}
+.header-sign {
+  height: 10%;
+  border-bottom: white 1px solid;
+  display: block;
+}
+.header-exit{
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  cursor: pointer;
+  top:0;
+}
+.sign-content{
+  margin-top: 10%;
+  position: absolute;
+  margin-left: 0;
+}
+.input-sign span{
+  position: relative;
+  bottom: 16px;
+  right: 35%;
+  font-weight: 600;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: -.03em;
+  color: #787e9e;
+}
+.input-sign input{
+  width: 40%;
+  min-height: 42px;
+  padding: 13px 16px 0;
+  border: 1px solid #30334d;
+  border-radius: 4px;
+  color: #fff;
+  background: #1e2035;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: -.03em;
+  box-sizing: border-box;
+}
+
+.sign-up-modal{
+  z-index: 343;
+  position: absolute;
+  width: 45vw;
+  height:85vh;
+  top:10vh;
+  right: 23vw;
+
+
+}
+.non-account{
+  color: #4b959b;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-sign-in{
+  width: 40%;
+  background: linear-gradient(89.86deg,#4be 35.19%,#81f8fd);
+  border-radius: 8px;
+  position: relative;
+  padding: 10px 25px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  color:#2f2e4b;
+  letter-spacing: -.03em;
+  line-height: 18px;
+}
+
+.button-sign-in:hover  {
+  color:#68539b;
+  transition: color 2s;
+
+}
+.button-sign-up{
+  background: #262940;
+  border: 1px solid #333752;
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 42%;
+  position: relative;
+  padding: 10px 25px;
+  margin-top:20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+  color:white;
+  letter-spacing: -.03em;
+  line-height: 18px;
+}
+.button-sign-up:hover{
+  background:#282b3d;
+  transition:  background 3s;
+}
+@media screen and (max-width: 600px) {
+  .sign-up-modal{
+    height: 100vh;
+    width: 100vw;
+    z-index: 40;
+    top:0;
+    right:0;
+    background: #2f2e4b;
+    text-align: center;
+  }
+  .sign-in-modal
+  {
+    height: 100vh;
+    width: 100vw;
+    z-index: 40;
+    top:0;
+    right:0;
+    background: #2f2e4b;
+    text-align: center;
+  }
+}

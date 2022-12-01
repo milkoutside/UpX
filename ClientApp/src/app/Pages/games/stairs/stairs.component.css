@@ -1,0 +1,57 @@
+
+.cell {
+  width: 100px;
+  height: 50px;
+  background:#444867;
+  background-size: contain;
+  border: 1px solid black;
+
+}
+
+.cell-grid {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.good-mines{
+  background: #67ce67;
+}
+.mines{
+  background: #da8383;
+}
+.mines-circle{
+  height: 10px;
+  width: 10px;
+  margin: 0 auto;
+  background: black;
+  border-radius: 50%;
+}
+.coefficient{
+  width: 100px;
+  height: 50px;
+  background: #25263c;
+  background-size: contain;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bet-container{
+  display: grid;
+  margin: 20px auto;
+  grid-template-columns: repeat(3, 1fr) 2.5fr;
+  grid-gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+.bet-container button{
+  width: 90px;
+  height: 30px;
+  border-radius: 4px;
+
+}
+.bet-container input {
+  width: 90px;
+  height: 30px;
+
+}

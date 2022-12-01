@@ -1,0 +1,12 @@
+.terms-title{
+  text-transform: uppercase;
+  color: #ffc107;
+  line-height: 26px;
+}
+.terms-paragraph{
+  list-style: decimal;
+  margin-left: 20px;
+}
+.container{
+  background: #2a2a44;
+}

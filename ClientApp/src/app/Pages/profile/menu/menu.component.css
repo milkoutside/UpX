@@ -1,0 +1,66 @@
+.operations-menu{
+
+}
+.operations-menu span{
+  padding: 0 50px;
+  border-radius: 5px;
+  border:1px solid #2f2e4b;
+  color: #b4b1e0;
+  font-weight: 700;
+  font-size: 1em;
+  cursor: pointer;
+}
+@media screen and (max-width: 900px)
+{
+  .operations-menu span{
+    padding: 0 2%;
+  }
+}
+@media screen and (max-width: 400px)
+{
+  .operations-menu span{
+    padding: 0 1%;
+  }
+}
+@media screen and (max-width: 360px)
+{
+  .operations-menu span{
+    padding: 0 0.5%;
+  }
+}
+.operations-menu span:hover{
+  color:white;
+}
+
+.container{
+  background: #2a2a44;
+}
+
+.caption-info{
+  color:white;
+}
+.info{
+  color:#b4b1e0;
+}
+.logout{
+  color: #ffffff;
+  cursor: pointer;
+
+}
+.logout:hover{
+  color:#FFF176 !important;
+}
+.payments{
+  border: 1px solid black;
+  cursor: pointer;
+}
+.payments img{
+  width: 100px;
+  height: 100px;
+
+}
+.bitcoind-img{
+  margin-top: 10px;
+  height: 80px !important;
+  width: 80px !important;
+}

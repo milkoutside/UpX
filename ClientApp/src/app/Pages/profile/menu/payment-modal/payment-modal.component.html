@@ -1,0 +1,20 @@
+<div class="payment-modal">
+  <div class="header-payment text-white mb-1  fs-3">
+    <span *ngIf="paymentsInfo.operation == 'toUp'">Пополнить</span>
+    <span *ngIf="paymentsInfo.operation == 'withdrawals'">Вывод</span>
+    <span class="header-exit text-white" (click)="closePayment()">x</span>
+  </div>
+  <div class="container payment-content">
+    <div class=" input-payment">
+      <input [(ngModel)]="paymentsInfo.paymentNumber"  >
+      <span>Card</span>
+    </div>
+    <div class=" input-payment mt-5">
+      <input [(ngModel)]="paymentsInfo.sum"  >
+      <span>Сумма</span>
+    </div>
+      <button class="button-end mt-4 me-4" (click)="sendPayments()">
+        Завершить
+      </button>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<header class="header">
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  box-shadow"
+  >
+    <div class="container-fluid">
+      <a class="navbar-brand logo  mx-3  "  [routerLink]="['']"></a>
+      <div *ngIf="aut" class="fs-5 text-white text-lg-end w-50">
+        <p><b>Баланс:</b></p>
+        <p>{{ userInfo.balance  | currency:'UAH': 'symbol-narrow'}}</p>
+      </div>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="mw-50 navbar-collapse  collapse d-sm-inline-flex fs-5 mb-1 justify-content-end "
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow ">
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            <a class="nav-link text-white" [routerLink]="['/']">Игры</a>
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" [routerLink]="['/counter']"
+              >Статистика</a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link text-white" routerLink="help"
+              >Помощь</a
+            >
+          </li>
+          <div class="mt-lg-1 mx-lg-2" *ngIf="!aut">
+            <li class="nav-item" >
+
+                <app-modal-login
+                ></app-modal-login>
+
+            </li>
+          </div>
+          <div *ngIf="aut" class="profile" routerLink="profile">
+            <p class="fs-3 text-center text-white">{{userInfo.name[0]}}</p>
+          </div>
+        </ul>
+      </div>
+
+    </div>
+  </nav>
+</header>
