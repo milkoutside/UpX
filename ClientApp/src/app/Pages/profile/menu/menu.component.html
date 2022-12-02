@@ -25,7 +25,7 @@
   <div *ngSwitchCase="'operations'" class="container mt-2">
     <div class="row text-white  mt-1">
       <div class="col">
-        Id операции:
+        ID операции:
       </div>
       <div class="col">
         Сумма:
@@ -34,33 +34,26 @@
         Операция
       </div>
       <div class="col">
-        Тип выплаты:
-      </div>
-      <div class="col">
-        Номер выплаты:
-      </div>
-      <div class="col">
         Дата:
       </div>
     </div>
-    <div class="row text-white" *ngFor="let f of trasactions">
+    <div class="row text-white" *ngFor="let t of trasactions">
       <div class="col">
-        {{f.id}}
+        {{t.id}}
       </div>
       <div class="col">
-        {{f.sum}}
+        {{t.sum}}
       </div>
       <div class="col">
-        {{f.operation}}
+        <div *ngIf="t.operation == 'toUp' ">
+          Пополнение
+        </div>
+        <div *ngIf="t.operation == 'withdrawals' ">
+          Вывод
+        </div>
       </div>
       <div class="col">
-        {{f.paymentType}}
-      </div>
-      <div class="col">
-        {{f.paymentNumber}}
-      </div>
-      <div class="col">
-        {{f.date | date }}
+        {{t.date | date : 'shortDate' }}
       </div>
     </div>
   </div>

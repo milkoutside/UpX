@@ -1,10 +1,10 @@
 export class Users{
  id?:number;
- name:string;
+ name:string = "";
 
-phone :string;
+phone :string = "";
 
- email?:string;
+ email?:string = "";
 
  balance:number;
 

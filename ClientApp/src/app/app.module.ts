@@ -17,6 +17,8 @@ import {JwtModule} from "@auth0/angular-jwt";
 import {AuthGuard} from "./guards/auth.guard";
 import { HelpComponent } from './Pages/help/help.component';
 import { PaymentModalComponent } from './Pages/profile/menu/payment-modal/payment-modal.component';
+import { GamesCardComponent } from './Components/games-card/games-card.component';
+import { AllGamesComponent } from './Pages/all-games/all-games.component';
 
 
 
@@ -36,6 +38,8 @@ export function tokenGetter() {
     ModalLoginComponent,
     HelpComponent,
     PaymentModalComponent,
+    GamesCardComponent,
+    AllGamesComponent,
   ],
     imports: [
         BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),

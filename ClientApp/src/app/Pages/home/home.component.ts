@@ -1,6 +1,6 @@
-import {Component, EventEmitter, OnInit} from '@angular/core';
-import {BetService} from "../../Service/bet.service";
-import {HttpClient} from "@angular/common/http";
+import {Component} from '@angular/core';
+import {Games} from "../../Models/Games";
+
 
 @Component({
   selector: 'app-home',
@@ -8,14 +8,11 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['home.component.css']
 })
 export class HomeComponent{
-  nb:number = 0;
+  games:Games = new Games();
   constructor() {
   }
 
-asas()
-{
-  this.nb = this.nb + 1;
-}
+
 
 
 }

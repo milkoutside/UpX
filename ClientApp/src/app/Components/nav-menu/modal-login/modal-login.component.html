@@ -6,16 +6,16 @@
     <span class="header-exit text-white" (click)="close()">x</span>
   </div>
   <div class="container sign-content">
-    <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <form [formGroup]="LoginForm" >
     <div class="input-sign">
-      <input id="login" name="username"  [(ngModel)]="credentials.name"  type="text">
+      <input formControlName="userName"  type="text">
       <span>Phone</span>
     </div>
     <div class="mt-5 input-sign">
-      <input  id="pass" name="password" [(ngModel)]="credentials.password"  type="password" >
-      <span>Email</span>
+      <input formControlName="userPassword"   type="password" >
+      <span>Пароль</span>
     </div>
-    <button class="button-sign-in mt-4 me-3" (click)="login(loginForm)" [disabled]="!loginForm.valid">
+    <button (click)="endLogin()" class="button-sign-in mt-4 me-3" [disabled]="!LoginForm.invalid">
       Войти
     </button>
     <p class=" non-account mt-4 me-3" (click)="OpenReg()">
@@ -30,7 +30,7 @@
     <span class="header-exit text-white" (click)="close()">x</span>
   </div>
   <div class="container sign-content">
-    <form [formGroup]="myForm" >
+    <form [formGroup]="RegistrationForm" >
       <div class="input-sign">
         <input  name="username"  formControlName="userName"   type="text">
         <span>Name</span>
@@ -48,7 +48,7 @@
         <span>Пароль</span>
       </div>
 
-      <button class="button-sign-up mt-4 me-4"  [disabled]="myForm.invalid">
+      <button (click)="endRegistration()" class="button-sign-up mt-4 me-4"  [disabled]="RegistrationForm.invalid">
         Завершить
       </button>
       <p class=" non-account mt-4 me-3" (click)="openSign()">

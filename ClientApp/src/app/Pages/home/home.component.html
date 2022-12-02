@@ -1,38 +1,40 @@
 <div [ngStyle]="{'background':'#25263c'}" class="container-fluid">
-  <div  class="container">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="/assets/img/turnir.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item ">
+        <img src="/assets/img/monopoly.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="/assets/img/crazy-time.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+  <div  class="container mb-5">
     <div class="welcome-caption text-white text-center pt-5">
       <p class="fs-1">Приветствуем вас в онлайн-казино <b>UP-X</b></p>
     </div>
     <div class="container mt-5">
-      <div class="row">
-        <div class="col md-5">
-          <a routerLink="stairs">
-            <div class="game-card">
-              <span class="img-stairs">
-                <span class="game-card-name">Stairs</span>
-              </span>
-            </div>
-          </a>
-        </div>
-        <div class="col md-5">
-          <a href="">
-            <div class="game-card">
-              <span class="img-crash">
-                <span class="game-card-name">CRASH</span>
-              </span>
-            </div>
-          </a>
-        </div>
-        <div class="col md-5">
-          <a href="">
-            <div class="game-card">
-              <span class="img-coin">
-                <span class="game-card-name">Coin Flip</span>
-              </span>
-            </div>
-          </a>
-        </div>
+      <app-games-card></app-games-card>
+    </div>
+    <div class="fs-2 text-white text-center mb-5">
+      <b>Почему выбрать именно нас?</b>
+    </div>
+    <div class="fs-3 text-center text-white mt-5">
+      <div class="graph mb-5 mt-5 img">
+        <div class="fs-2 text-danger mx-5 ">368X</div>
+        <div class="fs-2 text-danger me-5">60X</div>
       </div>
+      Большие коэффициенты на играх
+      <div class="mt-5 mb-5 certificate img">
+      </div>
+      Честность и 100% рандом
+      <div class="mt-5 mb-5 speed img">
+      </div>
+      Быстрые выплаты
     </div>
   </div>
+
 </div>

@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse} from "@angular/common/http";
 
 import {GameStairsService} from "../../../Service/game-stairs.service";
 import {Observable} from "rxjs";
 import {UserService} from "../../../Service/user.service";
 import {BetService} from "../../../Service/bet.service";
-import {AuthenticatedResponse} from "../../../_interfaces/authenticated-response.model";
 import {Bets} from "../../../Models/Bets";
 
 
@@ -46,10 +45,10 @@ export class StairsComponent implements OnInit {
     {
       this.isDisabled[this.next] = true;
       ev.target.classList.add("mines");
-      this.createDisabled()
       this.defeat = true;
       this.gameStart = false;
       this.userService.getUserInfo();
+      this.createDisabled()
     }
 
   }

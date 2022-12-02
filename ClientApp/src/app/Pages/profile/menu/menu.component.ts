@@ -1,10 +1,7 @@
-import {AfterContentInit, Component, DoCheck, Input, OnChanges, OnInit} from '@angular/core';
-import {UserService} from "../../../Service/user.service";
+import {Component, Input, OnInit} from '@angular/core';
 import {Users} from "../../../Models/Users";
-import {Router} from "@angular/router";
 import {PaymentsService} from "../../../Service/payments.service";
 import {Payments} from "../../../_interfaces/payments";
-import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-menu',

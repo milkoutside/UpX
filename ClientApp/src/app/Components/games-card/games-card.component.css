@@ -8,7 +8,7 @@
 }
 .game-card{
   position: relative;
- height: 20em;
+  height: 20em;
   width: 20em;
 
 }
@@ -53,49 +53,3 @@
   background-repeat: no-repeat;
   height: 100%;
 }
-.graph{
-  background: url("/assets/img/graph.svg")0 0/100% 100% no-repeat;
-
-  min-width: 170px;
-
-  height: 170px;
-}
-.certificate{
-  background: url("/assets/img/certificate.svg")0 0/100% 100% no-repeat;
-
-  min-width: 100px;
-
-  height: 100px;
-}
-.speed{
-  background: url("/assets/img/speed.svg")0 0/100% 100% no-repeat;
-  min-width: 100px;
-
-  height: 100px;
-}
-.img{
-  animation-name: Appearance;
-  animation-duration: 3s;
-  animation-timing-function: cubic-bezier(.1,-.6,.2,0);
-}
-@-webkit-keyframes Appearance {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@-o-keyframes Appearance {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@-moz-keyframes Appearance {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-@keyframes Appearance {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
-

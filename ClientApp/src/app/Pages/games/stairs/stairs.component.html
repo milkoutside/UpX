@@ -26,7 +26,7 @@
       <button (click)="bets.bet  = bets.bet + 50">50</button>
       <button (click)="bets.bet  = bets.bet + 70">70</button>
       <div *ngIf="gameStart">
-        <button (click)= "takeWin()">Забрать</button>
+        <button (click)= "takeWin()" [disabled]="next == 9">Забрать</button>
       </div>
       <div *ngIf="!gameStart">
         <button [disabled]="!isAuth || bets.bet < 8" (click)= "start()">Поставить</button>

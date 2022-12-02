@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {JwtHelperService} from "@auth0/angular-jwt";
-import {AuthGuard} from "./guards/auth.guard";
 import {TokenService} from "./Service/token.service";
 import {AuthenticatedResponse} from "./_interfaces/authenticated-response.model";
 

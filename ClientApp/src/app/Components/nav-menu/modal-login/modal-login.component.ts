@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from "@angular/forms";
-import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
-import {LoginModel} from "../../../_interfaces/login.model";
-import {Router} from "@angular/router";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {HttpErrorResponse} from "@angular/common/http";
 import {AuthenticatedResponse} from "../../../_interfaces/authenticated-response.model";
+import {UserService} from "../../../Service/user.service";
+import {Users} from "../../../Models/Users";
 
 @Component({
   selector: 'app-modal-login',
@@ -12,13 +12,11 @@ import {AuthenticatedResponse} from "../../../_interfaces/authenticated-response
 })
 export class ModalLoginComponent implements OnInit {
 
-  constructor(private http:HttpClient, private router: Router) { }
- signUp:boolean = false;
- reg:boolean = false;
+  constructor(private userService:UserService) { }
+   signUp:boolean = false;
+   reg:boolean = false;
 
-  invalidLogin: boolean;
-
-  credentials: LoginModel = {name:'',phone:'',email:'', password:''};
+  credentials: Users = new Users();
   ngOnInit(): void {
   }
   openSign()
@@ -40,26 +38,13 @@ export class ModalLoginComponent implements OnInit {
 
   }
 
-  login = ( form: NgForm) => {
-    if (form.valid) {
-      this.http.post<AuthenticatedResponse>("https://localhost:7006/api/auth/login", this.credentials, {
-        headers: new HttpHeaders({ "Content-Type": "application/json"})
-      })
-        .subscribe({
-          next: (response: AuthenticatedResponse) => {
-            const token = response.token;
-            const refreshToken = response.refreshToken;
-            localStorage.setItem("jwt", token);
-            localStorage.setItem("refreshToken", refreshToken);
-            this.invalidLogin = false;
-            window.location.reload();
-          },
-          error: (err: HttpErrorResponse) => this.invalidLogin = true
-        })
-    }
-  }
-
-  myForm:FormGroup = new FormGroup({
+  LoginForm:FormGroup = new FormGroup({
+    "userName": new FormControl("", [Validators.required,
+      Validators.minLength(3)]),
+    "userPassword": new FormControl("", [Validators.required,
+      Validators.pattern("[A-Za-z0-9]*"), Validators.minLength(8)]),
+  })
+  RegistrationForm:FormGroup = new FormGroup({
 
     "userName": new FormControl("", [Validators.required,Validators.minLength(3)]),
     "userPhone": new FormControl("", [Validators.required]),
@@ -67,9 +52,37 @@ export class ModalLoginComponent implements OnInit {
       Validators.required,
       Validators.email
     ]),
-    "userPassword": new FormControl("Tom", [Validators.required,Validators.pattern("[A-Za-z0-9]*"), Validators.minLength(8)]),
+    "userPassword": new FormControl("", [Validators.required,Validators.pattern("[A-Za-z0-9]*"), Validators.minLength(8)]),
 
   });
 
-  sd:string;
+  endRegistration()
+  {
+    this.credentials.name = this.RegistrationForm.controls['userName'].value;
+    this.credentials.phone = this.RegistrationForm.controls['userPhone'].value;
+    this.credentials.email = this.RegistrationForm.controls['userEmail'].value;
+    this.credentials.password = this.RegistrationForm.controls['userPassword'].value;
+    this.userService.createUser(this.credentials).subscribe({
+      next:()=>{
+        alert("Регистрация завершена")
+      },
+      error:(err)=>{ alert(err)}
+    });
+  }
+  endLogin()
+  {
+    this.credentials.phone = this.LoginForm.controls['userName'].value;
+    this.credentials.name = "";
+    this.credentials.password = this.LoginForm.controls['userPassword'].value;
+    this.userService.loginUser(this.credentials).subscribe({
+      next: (response: AuthenticatedResponse) => {
+        const token = response.token;
+        const refreshToken = response.refreshToken;
+        localStorage.setItem("jwt", token);
+        localStorage.setItem("refreshToken", refreshToken);
+        window.location.reload();
+      },
+      error: (err: HttpErrorResponse) => alert(err)
+    })
+  }
 }

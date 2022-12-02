@@ -1,0 +1,13 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col md-5" *ngFor="let games of games">
+      <a routerLink="{{games.path}}">
+        <div class="game-card">
+          <span class="{{games.class}}">
+            <span class="game-card-name">{{games.name}}</span>
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

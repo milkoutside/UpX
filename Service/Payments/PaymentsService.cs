@@ -17,12 +17,15 @@ public class PaymentsService
         {
             switch (payments.PaymentType)
             {
+                //here i need to do card validator and create new methods for bitcoin and paypal
                 case "MasterCard":
-                    user =  _bankCard.Replenish(payments, user);
+                    if(payments.PaymentNumber[0] == '5')
+                        user =  _bankCard.Replenish(payments, user);
                     break;
                 case "Visa": 
-                    user =  _bankCard.Replenish(payments, user);
-                   break;
+                    if(payments.PaymentNumber[0] == '4')
+                        user =  _bankCard.Replenish(payments, user);
+                    break;
                 case "PayPal":
                     user =  _bankCard.Replenish(payments, user);
                     break;
@@ -42,6 +45,7 @@ public class PaymentsService
         {
             switch (payments.PaymentType)
             {
+                //here i need to do card validator and create new methods for bitcoin and paypal
                 case "MasterCard":
                      user = _bankCard.Withdraw(payments, user);
                     break;

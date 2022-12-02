@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Users} from "../Models/Users";
+import {AuthenticatedResponse} from "../_interfaces/authenticated-response.model";
+import {LoginModel} from "../_interfaces/login.model";
 
 
 @Injectable({
@@ -19,6 +21,11 @@ export class UserService {
     return this.http
       .post<Users>(`${environment.apiUrl}/${this.url}/register`,User)
 
+  }
+  loginUser(user:Users) :Observable<AuthenticatedResponse>
+  {
+   return this.http.post<AuthenticatedResponse>
+   (`${environment.apiUrl}/${this.url}/login`, user)
   }
 
   getUserInfo()

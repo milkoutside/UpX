@@ -24,7 +24,7 @@ public class PaymentController : ControllerBase
     
     
     [HttpPost]
-    public async Task Payments(PaymentsDbo payments)
+    public async Task<ActionResult> Payments(PaymentsDbo payments)
     {
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == payments.UserId);
         if (payments != null && user !=null)
@@ -46,18 +46,24 @@ public class PaymentController : ControllerBase
 
                 await _context.SaveChangesAsync();
             }
-            
+
+            return Ok();
+        } 
+        if(user == null || payments == null)
+        {
+            return BadRequest();
         }
-        
+
+        return Ok();
     }
 
     [HttpGet]
-    public async Task<List<PaymentsDbo>> GetList()
+    public ActionResult<List<PaymentsDbo>> GetList()
     {
         var id = int.Parse(User.FindFirstValue(ClaimTypes.Sid));
 
         List<PaymentsDbo> list =  _context.Operations.Where(t => t.UserId == id).ToList();
 
-        return list;
+        return Ok(list);
     }
 }

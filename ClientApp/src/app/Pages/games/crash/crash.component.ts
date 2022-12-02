@@ -12,5 +12,5 @@ export class CrashComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  asd:number =10;
+
 }

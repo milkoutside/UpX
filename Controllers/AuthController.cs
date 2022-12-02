@@ -40,7 +40,7 @@ namespace Upx.Controllers
         public async Task<IActionResult> Login(Users users)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => 
-                (u.Name == users.Name) && (u.Password == users.Password));
+                (u.Phone == users.Phone) && (u.Password == users.Password));
             if (user is null)
                 return Unauthorized();
 
