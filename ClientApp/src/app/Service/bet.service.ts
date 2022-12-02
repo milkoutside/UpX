@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {Users} from "../Models/Users";
-import {environment} from "../../environments/environment";
-import {AuthenticatedResponse} from "../_interfaces/authenticated-response.model";
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Bets} from "../Models/Bets";
 

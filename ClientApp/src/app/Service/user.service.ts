@@ -4,7 +4,6 @@ import {environment} from "../../environments/environment";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Users} from "../Models/Users";
 import {AuthenticatedResponse} from "../_interfaces/authenticated-response.model";
-import {LoginModel} from "../_interfaces/login.model";
 
 
 @Injectable({
